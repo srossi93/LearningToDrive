@@ -1,4 +1,4 @@
-\documentclass[13pt]{beamer}
+\documentclass[14pt]{beamer}
 
 \usetheme{metropolis}
 \usepackage{appendixnumberbeamer}
@@ -28,13 +28,17 @@
 \maketitle
 
 \begin{frame}{Table of contents}
+  \small
   \setbeamertemplate{section in toc}[sections numbered]
-  \tableofcontents[hideallsubsections]
+  \tableofcontents[]%hideallsubsections
 \end{frame}
 
 \input{chapters/intro}
 
 \input{chapters/HOG}
+
+\input{chapters/partial_occlusion.tex}
+
 
 \section{Titleformats}
 
