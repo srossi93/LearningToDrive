@@ -49,23 +49,20 @@
 \end{frame}
 
 
-\begin{frame}{A little bit of math}
-
+\begin{frame}{Hidden variable framework}
+\small
 Let $\mathbf{x}\in\mathbb{R}^d$ and $y\in\lbrace0,1\rbrace$ be respectively the \textit{feature vector} and the \textit{label} of a detection window.\\
 \vspace{3mm}
-\pause
 Denote the detection scores of the $P$ parts by $\mathbf{s} = [s_1,...,s_P]^T = \gamma(\mathbf{x})$, where $\gamma(\mathbf{x})$ are part detectors.\\
 \vspace{3mm}
-\pause
 Denote the visibilities of the $P$ parts by $\mathbf{h} = [h_1,...,h_P]^T \in\lbrace0,1\rbrace^P$, with $h_i = 1$ meaning \textbf{visible} and $h_i = 0$ meaning \textbf{invisible}.
+\begin{equation}
+  p(y\vert\mathbf{x}) = \sum_\mathbf{h}p(y,\mathbf{h}\vert\mathbf{x}) = \sum_\mathbf{h}p(y\vert\mathbf{h},\mathbf{x})p(\mathbf{h}\vert\mathbf{x})
+\end{equation}
 
 \end{frame}
 
 
-\begin{frame}{Hidden variable framework}
-\begin{equation}
-  p(y\vert\mathbf{x}) = \sum_\mathbf{h}p(y,\mathbf{h}\vert\mathbf{x}) = \sum_\mathbf{h}p(y\vert\mathbf{h},\mathbf{x})p(\mathbf{h}\vert\mathbf{x})
-\end{equation}
 
 %\pause
 %  Often, for a fast approximate solution, this relation is simplified as follows:
@@ -73,20 +70,27 @@ Denote the visibilities of the $P$ parts by $\mathbf{h} = [h_1,...,h_P]^T \in\lb
 %  p(y\vert\mathbf{x}) \approx \exp \left( \sum_i s_i \right)
 %\end{equation}
 
-\pause
-\metroset{block=fill}
-\begin{block}{Objective}
-  Build a deep model that learns the correlation of visibility
-   relationship among parts
-\end{block}
+%\pause
+%\metroset{block=fill}
+%\begin{block}{Objective}
+%  Build a deep model that learns the correlation of visibility
+%   relationship among parts
+%\end{block}
 
-\end{frame}
+%\end{frame}
 
 \begin{frame}{Deep Model for Part Visibility Estimation}
+  \small
+  \metroset{block=fill}
+  \begin{block}{Objective}
+    Build a deep model that learns the correlation of visibility
+     relationship among parts
+  \end{block}
+  \pause
 \centering
 \includegraphics[width=0.85\textwidth]{mlp2.png}
 \\
-\includegraphics[width=0.3\textwidth]{mlp1.png}
+%\includegraphics[width=0.3\textwidth]{mlp1.png}
 \end{frame}
 
 \begin{frame}{Result}

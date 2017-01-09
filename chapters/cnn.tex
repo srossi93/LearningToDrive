@@ -2,7 +2,11 @@
 
 \subsection{CNN}
 \begin{frame}{Convolutional Neural Networks}
-IMAGE
+  \centering
+\includegraphics[width=\textwidth]{CNN.png}\\
+\small
+\vspace{1mm}
+Neural Network \hspace{1.75cm} Convolutional Neural Networks
 \end{frame}
 
 \begin{frame}{CNN Layers}
@@ -18,7 +22,7 @@ IMAGE
 
 \begin{frame}{Convolution Layer}
 \only<1>{
-IMAGE
+\includegraphics[width=\textwidth]{convolution.png}
 }
 \only<2>{
 Extracts features from the input image\\
@@ -36,7 +40,7 @@ Filters' values learned during the training\\
 \only<3>{
 How many convolution matrices? $\rightarrow$ Number of filters or depth\\
 \vspace{2mm}
-Size of convolution matrices? $\rightarrow$ Filters' size\\
+Size of convolution matrices? $\rightarrow$ Depth\\
 \vspace{2mm}
 Step between each convolution? $\rightarrow$ Stride\\
 \vspace{2mm}
@@ -50,10 +54,13 @@ Zero-padding for convolution on the border?
   Reduces the dimensionality of each feature map\\
   Retains the most important information\\
 \vspace{10mm}
-IMAGE
+\begin{center}
+\includegraphics[width=.5\textwidth]{polling.png}
+\end{center}
+
 }
 \only<2>{
-IMAGE
+\includegraphics[width=\textwidth]{polling_example.png}
 }
 \end{frame}
 
@@ -88,21 +95,31 @@ IMAGE
   \small
 \only<1>{
   \textbf{Padding} to overcome the issue of imprecise proposed region:\\
-  \texttt{
-  - For each box of the training select the closer candidate region\\
-  - Compute the padding needed so that the box is contained in the region\\
-  - Build the histogram of the padding quantities and use the mean value\\}
-  IMAGE
+  \begin{itemize}
+
+      \item[-] \texttt{For each box of the training select the closer candidate region}
+      \item[-] \texttt{Compute the padding needed so that the box is contained in the region}
+      \item[-] \texttt{Build the histogram of the padding quantities and use the mean value}
+  \end{itemize}
+
+  %\texttt{
+  %- For each box of the training select the closer candidate region\\
+  %- Compute the padding needed so that the box is contained in the region\\
+  %- Build the histogram of the padding quantities and use the mean value\\}
+  \begin{center}
+    \includegraphics[width=.5\textwidth]{data_preproc.png}
+  \end{center}
 }
 \only<2>{
   \textbf{Negative Sample Decorrelation}:\\
-  \texttt{
-  - Selects negative training examples that are as diverse as possible\\
-  - Randomly extract N regions not containing a pedestrian\\
-  - Compute their color histogram\\
-  - Normalize it to obtain a probability distribution\\
-  - Compute the euclidean distance between each pair of distribution\\
-  - Select the furthest K regions\\}
+  \begin{itemize}
+  \item[-] \texttt{Selects negative training examples that are as diverse as possible}
+  \item[-] \texttt{Randomly extract N regions not containing a pedestrian}
+  \item[-] \texttt{Compute their color histogram}
+  \item[-] \texttt{Normalize it to obtain a probability distribution}
+  \item[-] \texttt{Compute the euclidean distance between each pair of distribution}
+  \item[-] \texttt{Select the furthest K regions}
+  \end{itemize}
 }
 
 \end{frame}
@@ -159,10 +176,16 @@ IMAGE
 \end{frame}
 
 \begin{frame}{Classifier and Detector}
-  IMAGE\\
-  IMAGE
+  \small
+\centering
+  \includegraphics[width=.9\textwidth]{classifier.png}  \\
+  The architecture of the tiny CNN classifier\\
+  \vspace{1cm}
+  \includegraphics[width=.9\textwidth]{detector.png}  \\
+  The architecture of the modified AlexNet
 \end{frame}
 
 \begin{frame}{Comparison}
-  IMAGE
+  \centering
+    \includegraphics[width=1\textwidth]{comparison.png}
 \end{frame}

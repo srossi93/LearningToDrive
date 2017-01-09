@@ -28,42 +28,43 @@
   a 1D \textit{histogram} of gradient directions over the pixels of the cell and
   normalize the result over a \textit{block} of cells for better invariance to illumination.
 \end{exampleblock}
-}
-
-\end{frame}
-
-
-\begin{frame}{Algorithm for HOG Extraction}
 \input{../images/HOG_algorithm.tex}
-\end{frame}
-
-\begin{frame}{Noise Reduction}
-\only<1>{
-  Due to the intrinsic randomness nature of an acquisition system, generally an image
-  is always affected by an high frequency noise (likely modeled as AWGN).\\
-  \vspace{0.25cm}
-  It may be useful to reduce the noise level before starting to extract features.
 }
 
-\only<2>{
-  General noise reduction filter: \textbf{Gaussian Filter}
-  \begin{equation}
-    g(x,y) = \dfrac{1}{2\pi\sigma^2}\exp{\left(-\dfrac{x^2+y^2}{2\sigma^2}\right)}
-  \end{equation}
-  \begin{figure}
-    \includegraphics[width=.4\textwidth]{no_filter.jpg}
-    \hspace{1mm}
-    \includegraphics[width=.4\textwidth]{filter.jpg}
-  \end{figure}
-}
 \end{frame}
 
 
-\begin{frame}{Gradient Computation}
-\input{../images/gradient_computation.tex}
-\end{frame}
+%\begin{frame}{Algorithm for HOG Extraction}
 
+%\end{frame}
 
+%\begin{frame}{Noise Reduction}
+%\only<1>{
+%  Due to the intrinsic randomness nature of an acquisition system, generally an image
+%  is always affected by an high frequency noise (likely modeled as AWGN).\\
+%  \vspace{0.25cm}
+%  It may be useful to reduce the noise level before starting to extract features.
+%}
+%
+%\only<2>{
+%  General noise reduction filter: \textbf{Gaussian Filter}
+%  \begin{equation}
+%    g(x,y) = \dfrac{1}{2\pi\sigma^2}\exp{\left(-\dfrac{x^2+y^2}{2\sigma^2}\right)}
+%  \end{equation}
+%  \begin{figure}
+%    \includegraphics[width=.4\textwidth]{no_filter.jpg}
+%    \hspace{1mm}
+%    \includegraphics[width=.4\textwidth]{filter.jpg}
+%  \end{figure}
+%}
+%\end{frame}
+%
+%
+%\begin{frame}{Gradient Computation}
+%\input{../images/gradient_computation.tex}
+%\end{frame}
+%
+%
 \begin{frame}{Histograms}
 
 \only<1>{
@@ -82,7 +83,7 @@
   \end{equation}
 
   \begin{itemize}
-  \item $n_\theta$ \emph{angle bins} uniformely (?) distributed
+  \item $n_\theta$ \emph{angle bins} uniformely distributed
   \item The vote is a function of the gradient magnitude at the pixel $f(G)$, either the
         magnitude itself, its square, its square root, ...
   \end{itemize}
@@ -130,14 +131,14 @@
     \includegraphics[width=0.75\textwidth]{HOG_result2.png}
   }
 
-  \only<3>{
-    \center
-    \includegraphics[width=0.75\textwidth]{HOG_result3.png}\\
-    \small
-    The miss rate at $10^{-4}$ FPPW as the cell and block sizes change.\\
-    %3 x 3 blocks of 6 x 6 pixel cells perform best,
-    %with 10.4\% miss rate.
-  }
+  %\only<3>{
+  %  \center
+  %  \includegraphics[width=0.75\textwidth]{HOG_result3.png}\\
+  %  \small
+  %  The miss rate at $10^{-4}$ FPPW as the cell and block sizes change.\\
+  %  %3 x 3 blocks of 6 x 6 pixel cells perform best,
+  %  %with 10.4\% miss rate.
+  %}
 
 \end{frame}
 

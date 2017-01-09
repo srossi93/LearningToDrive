@@ -3,24 +3,24 @@
 %%include other needed packages here
 %\begin{document}
 
-
+\small
 \tikzstyle{block} = [rectangle, draw, %fill=blue!20,
-                  text width=5em, text centered, rounded corners, minimum height=4em]
+                  text width=3.1em, text centered, rounded corners, minimum height=2.5em]
 
 \tikzstyle{block_invisible} = [rectangle,text width=7em, text centered, rounded corners]
 \tikzstyle{line} = [draw, -latex]
 
 \center
 
-\begin{tikzpicture}[node distance = 2.75cm,]
+\begin{tikzpicture}[node distance = 2.25cm,scale=0.6]
 
     % Place nodes
     \node [block_invisible] (input_image) {\scriptsize \textbf{Input image} \\ (to be analyzed)};
-    \node [block, above of=input_image, node distance=2cm] (normalizzazione_gamma_colore) {{\scriptsize Noise Reduction}};
+    \node [block, above of=input_image, node distance=1.5cm] (normalizzazione_gamma_colore) {{\scriptsize Preproc.}};
     \node [block, right of=normalizzazione_gamma_colore] (gradiente) {\scriptsize Gradient};
-    \node [block, right of=gradiente] (pesatura_bins) {\scriptsize Histograms};
-    \node [block, right of=pesatura_bins] (normalizzazione_blocco) {\scriptsize Normalization};
-    \node [block_invisible, below of=normalizzazione_blocco,node distance=2cm] (classificatore) {\scriptsize \textbf{Feature vectors} \\ (to the classifier)};
+    \node [block, text width=3.5em, right of=gradiente] (pesatura_bins) {\scriptsize Histograms};
+    \node [block, text width=4em, right of=pesatura_bins] (normalizzazione_blocco) {\scriptsize Normalization};
+    \node [block_invisible, below of=normalizzazione_blocco,node distance=1.5cm] (classificatore) {\scriptsize \textbf{Feature vectors} \\ (to the classifier)};
 
     % Draw edges
     \path [line] (input_image) -- (normalizzazione_gamma_colore);
