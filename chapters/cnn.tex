@@ -6,7 +6,7 @@
 \includegraphics[width=\textwidth]{CNN.png}\\
 \small
 \vspace{1mm}
-Neural Network \hspace{1.75cm} Convolutional Neural Networks
+Neural Network \hspace{1.75cm} Convolutional Neural Network
 \end{frame}
 
 \begin{frame}{CNN Layers}
@@ -24,20 +24,20 @@ Neural Network \hspace{1.75cm} Convolutional Neural Networks
 \only<1>{
 \includegraphics[width=\textwidth]{convolution.png}
 }
+%\only<2>{
+%Extracts features from the input image\\
+%\vspace{1mm}
+%Preserves the spatial relationship between pixels\\
+%\vspace{1mm}
+%Convolution matrix also called \textit{filter}, \textit{kernel} or \textit{feature detector}\\
+%\vspace{1mm}
+%Output: \textbf{feature maps}\\
+%\vspace{1mm}
+%Different filters generate different feature maps\\
+%\vspace{1mm}
+%Filters' values learned during the training\\
+%}
 \only<2>{
-Extracts features from the input image\\
-\vspace{1mm}
-Preserves the spatial relationship between pixels\\
-\vspace{1mm}
-Convolution matrix also called \textit{filter}, \textit{kernel} or \textit{feature detector}\\
-\vspace{1mm}
-Output: \textbf{feature maps}\\
-\vspace{1mm}
-Different filters generate different feature maps\\
-\vspace{1mm}
-Filters' values learned during the training\\
-}
-\only<3>{
 How many convolution matrices? $\rightarrow$ Number of filters or depth\\
 \vspace{2mm}
 Size of convolution matrices? $\rightarrow$ Depth\\
@@ -71,7 +71,7 @@ Zero-padding for convolution on the border?
   \vspace{2mm}
   Computes the class scores\\
   \vspace{2mm}
-  Examples: softmax activation function, SVM
+
 
 \end{frame}
 \subsection{DeepPed}
@@ -93,47 +93,54 @@ Zero-padding for convolution on the border?
 
 \begin{frame}{Data Preprocessing}
   \small
-\only<1>{
-  \textbf{Padding} to overcome the issue of imprecise proposed region:\\
-  \begin{itemize}
-
-      \item[-] \texttt{For each box of the training select the closer candidate region}
-      \item[-] \texttt{Compute the padding needed so that the box is contained in the region}
-      \item[-] \texttt{Build the histogram of the padding quantities and use the mean value}
-  \end{itemize}
-
-  %\texttt{
-  %- For each box of the training select the closer candidate region\\
-  %- Compute the padding needed so that the box is contained in the region\\
-  %- Build the histogram of the padding quantities and use the mean value\\}
+  \textbf{Padding} to overcome the issue of imprecise proposed region\\
+  \textbf{Negative Sample Decorrelation} selects negative training examples that are as diverse as possible\\
   \begin{center}
-    \includegraphics[width=.5\textwidth]{data_preproc.png}
+\includegraphics[width=.45\textwidth]{data_preproc.png}
+    \hspace{2mm}
+\includegraphics[width=.45\textwidth]{data_preproc2.png}
   \end{center}
-}
-\only<2>{
-  \textbf{Negative Sample Decorrelation}:\\
-  \begin{itemize}
-  \item[-] \texttt{Selects negative training examples that are as diverse as possible}
-  \item[-] \texttt{Randomly extract N regions not containing a pedestrian}
-  \item[-] \texttt{Compute their color histogram}
-  \item[-] \texttt{Normalize it to obtain a probability distribution}
-  \item[-] \texttt{Compute the euclidean distance between each pair of distribution}
-  \item[-] \texttt{Select the furthest K regions}
-  \end{itemize}
-}
+%\only<1>{
+%  \textbf{Padding} to overcome the issue of imprecise proposed region:\\
+%  \begin{itemize}
+%   \setlength\itemsep{0.05mm}
+%      \item[-] \texttt{For each box of the training select the closer candidate region}
+%      \item[-] \texttt{Compute the padding needed so that the box is contained in the region}
+%      \item[-] \texttt{Build the histogram of the padding quantities and use the mean value}
+%  \end{itemize}
+%  %\texttt{
+%  %- For each box of the training select the closer candidate region\\
+%  %- Compute the padding needed so that the box is contained in the region\\
+%  %- Build the histogram of the padding quantities and use the mean value\\}
+%  \begin{center}
+%    \includegraphics[width=.5\textwidth]{data_preproc.png}
+%  \end{center}
+%}
+%\only<2>{
+%  \textbf{Negative Sample Decorrelation}:\\
+%  \begin{itemize}
+%    \setlength\itemsep{0.05mm}
+%  \item[-] \texttt{Selects negative training examples that are as diverse as possible}
+%  \item[-] \texttt{Randomly extract N regions not containing a pedestrian}
+%  \item[-] \texttt{Compute their color histogram}
+%  \item[-] \texttt{Normalize it to obtain a probability distribution}
+%  \item[-] \texttt{Compute the euclidean distance between each pair of distribution}
+%  \item[-] \texttt{Select the furthest K regions}
+%  \end{itemize}
+%}
 
 \end{frame}
 
-\begin{frame}{Fine-tuned CNN}
-  6 sessions as training set, 5 as test set\\
-  \vspace{2mm}
-  k-fold cross validation procedure (k = 6)\\
-  \vspace{2mm}
-  Resampling the test set (1 image every 30 frames) to reduce correlation\\
-  \vspace{2mm}
-  3000 iterations for the training procedure\\
-
-\end{frame}
+%\begin{frame}{Fine-tuned CNN}
+%  6 sessions as training set, 5 as test set\\
+%  \vspace{2mm}
+%  k-fold cross validation procedure (k = 6)\\
+%  \vspace{2mm}
+%  Resampling the test set (1 image every 30 frames) to reduce correlation\\
+%  \vspace{2mm}
+%  3000 iterations for the training procedure\\
+%
+%\end{frame}
 
 \subsection{DeepCascade}
 \begin{frame}{DeepCascade}
@@ -146,7 +153,7 @@ Zero-padding for convolution on the border?
     \item frequently used method for \textbf{speeding up} classifiers
     \item divides classifiers into a sequence of \textbf{simpler classifiers}
     \item VeryFast cascade reduces recalls at each stage, increasing MR
-    \item hybrid approach: use only 10\% of the stages in the cascade
+    %\item hybrid approach: use only 10\% of the stages in the cascade
   \end{itemize}
 \end{frame}
 
@@ -178,10 +185,10 @@ Zero-padding for convolution on the border?
 \begin{frame}{Classifier and Detector}
   \small
 \centering
-  \includegraphics[width=.9\textwidth]{classifier.png}  \\
+  \includegraphics[width=.9\paperwidth]{substitute1.png}  \\
   The architecture of the tiny CNN classifier\\
   \vspace{1cm}
-  \includegraphics[width=.9\textwidth]{detector.png}  \\
+  \includegraphics[width=.9\paperwidth]{substitute2.png}  \\
   The architecture of the modified AlexNet
 \end{frame}
 
