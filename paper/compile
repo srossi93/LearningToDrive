@@ -1,0 +1,1 @@
+latexmk -bibtex -pvc -pdf -output-directory=out summary_ADST.tex
